@@ -1,0 +1,30 @@
+﻿@import "tailwindcss";
+
+:root {
+  --navy: #0D2338;
+  --navy2: #1A334F;
+  --blue: #0EA5E9;
+  --light-blue: #EAF5FD;
+  --grey: #5A7A95;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f8fafc;
+}
+
+@media print {
+  .no-print { display: none !important; }
+  .page-break { page-break-before: always; }
+}
+
+.report-page {
+  page-break-before: always;
+  padding: 2rem;
+}
+
+.report-page:first-child {
+  page-break-before: avoid;
+}
