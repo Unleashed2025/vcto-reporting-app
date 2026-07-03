@@ -1,29 +1,12 @@
-import { useRef } from 'react';
-import { Link } from 'react-router-dom';
 import { BRAND, COMPANY } from '../utils/branding';
-import { exportToPDF, exportToWord } from '../utils/exportUtils';
 
 export default function MasterTrackerReport({ data, analytics }) {
-  const reportRef = useRef(null);
   const today = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 
   return (
     <div className="min-h-screen bg-gray-100">
-      {/* Toolbar */}
-      <div className="no-print sticky top-0 z-50 bg-[#0D2338] border-b border-[#1A334F] px-6 py-3 flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <Link to="/master-tracker" className="text-[#5A7A95] hover:text-[#0EA5E9] text-sm">← Upload New</Link>
-          <span className="text-white font-semibold text-sm">Master Tracker Report</span>
-        </div>
-        <div className="flex items-center gap-3">
-          <button onClick={() => exportToPDF(reportRef.current)} className="bg-[#0EA5E9] text-white text-xs font-semibold px-4 py-2 rounded hover:bg-[#0EA5E9]/80">Export PDF</button>
-          <button onClick={() => exportToWord(data, analytics)} className="bg-[#059669] text-white text-xs font-semibold px-4 py-2 rounded hover:bg-[#059669]/80">Export Word</button>
-          <button onClick={() => window.print()} className="bg-[#5A7A95] text-white text-xs font-semibold px-4 py-2 rounded hover:bg-[#5A7A95]/80">Print</button>
-        </div>
-      </div>
-
       {/* Report Content */}
-      <div ref={reportRef} className="max-w-[210mm] mx-auto bg-white shadow-xl">
+      <div className="max-w-[210mm] mx-auto bg-white shadow-xl">
         
         {/* === COVER PAGE === */}
         <div className="report-page min-h-[297mm] flex flex-col justify-between p-16 bg-[#0D2338] text-white">
